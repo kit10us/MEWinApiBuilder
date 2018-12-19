@@ -193,6 +193,11 @@ int ListView::GetSelectedItem() const
 	return GetNextItem( -1, LVNI_SELECTED );
 }
 
+int ListView::GetItemCount() const
+{
+	return ListView_GetItemCount( GetHandle() );
+}
+
 void ListView::SetGridLines( bool enable )				{ SetExStyle( LVS_EX_GRIDLINES				, enable ); }
 void ListView::SetSubItemImages( bool enable )			{ SetExStyle( LVS_EX_SUBITEMIMAGES			, enable ); }
 void ListView::SetCheckBoxes( bool enable )				{ SetExStyle( LVS_EX_CHECKBOXES				, enable ); }

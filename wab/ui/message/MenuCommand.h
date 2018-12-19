@@ -16,7 +16,7 @@ namespace ui
 
 			bool IsFor( std::string _name ) const
 			{
-				return unify::StringIs( item->GetName(), _name );
+				return unify::string::StringIs( item->GetName(), _name );
 			}
 		};
 	}

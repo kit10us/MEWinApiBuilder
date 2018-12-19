@@ -86,14 +86,14 @@ namespace create
 	private:		 
 		std::vector< MenuItem > m_createItems;
 		std::vector< std::shared_ptr< ui::MenuItem > > m_itemList;
-		std::map< std::string, std::shared_ptr< ui::MenuItem >, unify::CaseInsensitiveLessThanTest > m_itemMap;
+		std::map< std::string, std::shared_ptr< ui::MenuItem >, unify::string::CaseInsensitiveLessThanTest > m_itemMap;
 
 
 		std::shared_ptr< ui::Menu > m_rootMenu;
 
-		std::map< std::string /* name */, std::shared_ptr< ui::Menu >, unify:: CaseInsensitiveLessThanTest> m_menuMap;
+		std::map< std::string /* name */, std::shared_ptr< ui::Menu >, unify::string::CaseInsensitiveLessThanTest> m_menuMap;
 		std::map< HMENU, std::shared_ptr< ui::Menu > > m_menuList;
 		
-		//std::map< std::string /*name*/, int, unify::CaseInsensitiveLessThanTest > m_itemNameToId;
+		//std::map< std::string /*name*/, int, unify::string::CaseInsensitiveLessThanTest > m_itemNameToId;
 	};
 }

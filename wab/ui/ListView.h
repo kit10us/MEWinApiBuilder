@@ -28,6 +28,8 @@ namespace ui
 
 		int GetSelectedItem() const;
 
+		int GetItemCount() const;
+
 	public: // WinApi functions...	
 		// Styles...
 		void SetGridLines( bool enable );
