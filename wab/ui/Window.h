@@ -48,7 +48,7 @@ namespace ui
 
 		/// <summary>
 		/// Step down from a container to it's n'th parent.
-		/// </summary?
+		/// </summary>
 		void StepDown( int steps = 1 );
 
 		HWND Create( std::wstring title, int x, int y, int nCmdShow );
