@@ -10,10 +10,6 @@
 #undef CreateWindow
 #endif
 
-#ifdef GetCommandLine
-#undef GetCommandLine
-#endif
-
 #include <string>
 #include <cassert>
 #include <memory>

@@ -12,10 +12,6 @@
 #undef CreateWindow
 #endif
 
-#ifdef GetCommandLine
-#undef GetCommandLine
-#endif
-
 #include <wab/ui/IControl.h>
 
 namespace ui
