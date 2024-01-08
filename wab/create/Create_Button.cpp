@@ -96,7 +96,7 @@ void Button::ComputePass1()
 	if ( SizeToContentWidth() == GetWantedWidth() )
 	{
 		int charWidth = LOWORD( GetDialogBaseUnits() ) + 2;
-		m_actualWidth = charWidth * GetWantedText().size();
+		m_actualWidth = charWidth * (int)GetWantedText().size();
 	}
 }
 
@@ -111,7 +111,7 @@ void Button::Create( HWND parent )
 		GetActualWidth(),
 		GetActualHeight(), 
 		parent,
-		(HMENU)GetID(),
+		(HMENU)(INT64)GetID(),
 		0,
 		0
 	);

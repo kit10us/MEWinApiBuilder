@@ -78,7 +78,7 @@ namespace ui
 		case WM_NOTIFY:
 		{				   
 			NMHDR * hdr = (NMHDR*)lParam;
-			IControl * control = window->GetControl( hdr->idFrom );
+			IControl * control = window->GetControl( (int)hdr->idFrom );
 			if ( control )
 			{
 				result.reset( window->OnNotify( { control, hdr->code, lParam } ) );

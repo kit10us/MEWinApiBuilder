@@ -95,8 +95,8 @@ void Static::ComputePass1()
 
 	if ( SizeToContentWidth() == GetWantedWidth() )
 	{
-		int charWidth = LOWORD( GetDialogBaseUnits() );
-		m_actualWidth = charWidth * m_wantedText.size();
+		auto charWidth = (int)LOWORD( GetDialogBaseUnits() );
+		m_actualWidth = charWidth * (int)m_wantedText.size();
 	}
 }
 
@@ -111,7 +111,7 @@ void Static::Create( HWND parent )
 		GetActualWidth(),
 		GetActualHeight(), 
 		parent,
-		(HMENU)GetID(),
+		(HMENU)(uint64_t)GetID(),
 		0,
 		0
 	);

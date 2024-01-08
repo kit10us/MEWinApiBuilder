@@ -65,7 +65,7 @@ void Combobox::Create( HWND parent )
 		GetActualWidth(),
 		( create::DefaultHeight() == m_wantedHeight ) ? GetDefaultHeight() : m_wantedHeight, 
 		parent,
-		(HMENU)GetID(),
+		(HMENU)(uint64_t)GetID(),
 		0,
 		0
 	);

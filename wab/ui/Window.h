@@ -14,11 +14,12 @@
 #include <wab/ui/ListView.h>
 #include <wab/ui/Menu.h>
 #include <wab/ui/IWindow.h>
+#include <wab/ui/Builder.h>
 #include <unify/String.h>
+#include <WinUser.h>
 #include <memory>
 #include <map>
 
-#include <wab/ui/Builder.h>
 
 namespace ui
 {
@@ -34,7 +35,7 @@ namespace ui
 		create::container::Container * m_rootContainer;
 		create::container::Container * m_currentParent;
 		std::map< int, create::IControl::ptr > m_controls;
-		std::map< std::string, create::IControl::ptr, unify::string::CaseInsensitiveLessThanTest > m_controlsByName;
+		std::map< std::string, create::IControl::ptr, unify::string::CaseInsensitiveLessThanEqualTest > m_controlsByName;
 		create::Menu::ptr m_menu;
 
 	public:

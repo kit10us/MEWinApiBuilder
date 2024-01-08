@@ -5,12 +5,22 @@
 
 #include <wab/ui/Window.h>
 #include <wab/ui/Builder_WndProc.h>
+#include <winuser.h>
 #include <cassert>
+
+#if defined(GWL_HINSTANCE)
+#define REAL_GWL_HINSTANCE GWL_HINSTANCE
+#elif defined(GWLP_HINSTANCE)
+#define REAL_GWL_HINSTANCE GWLP_HINSTANCE
+#else
+#error No architecture support for GWL_HINSTANCE nor for GWLP_HINSTANCE
+#endif
+
 
 using namespace ui;
 
 Window::Window( HWND handle )
-	: m_hInstance{ (HINSTANCE)GetWindowLong(handle, GWL_HINSTANCE) }
+	: m_hInstance{ (HINSTANCE)GetWindowLong(handle, REAL_GWL_HINSTANCE) }
 	, m_parent{ nullptr }
 	, m_parentHandle{ nullptr }
 	, m_handle{ handle }
@@ -20,7 +30,7 @@ Window::Window( HWND handle )
 }
 
 Window::Window( IWindow* parent, std::wstring className )
-	: m_hInstance{ (HINSTANCE)GetWindowLong( parent->GetHandle(), GWL_HINSTANCE ) }
+	: m_hInstance{ (HINSTANCE)GetWindowLong( parent->GetHandle(), REAL_GWL_HINSTANCE ) }
 	, m_className{ className }
 	, m_parent{ parent }
 	, m_parentHandle{ parent->GetHandle() }
@@ -75,7 +85,7 @@ void Window::AddControl( create::IControl * control, std::string name )
 	assert( m_currentParent );
 	m_currentParent->AddChild( control );
 
-	int id = m_controls.size() + 1;
+	int id = (int)m_controls.size() + 1;
 
 	create::IControl::ptr controlPtr( control );
 	m_controls[ id ] = controlPtr;
@@ -163,7 +173,7 @@ HWND Window::GetHandle() const
 
 HINSTANCE Window::GetInstance() const
 {
-	return (HINSTANCE)GetWindowLong( GetHandle(), GWL_HINSTANCE );
+	return (HINSTANCE)(UINT64)GetWindowLong( GetHandle(), REAL_GWL_HINSTANCE );
 }
 
 IControl* Window::GetControl( int controlId ) const
@@ -263,7 +273,7 @@ std::string Window::GetText() const
 
 int Window::SendUserMessage( int message, message::Params params )
 {
-	return SendMessageA( GetHandle(), WM_USER + message, params.wParam, params.lParam ); 
+	return (int)SendMessageA( GetHandle(), WM_USER + message, params.wParam, params.lParam ); 
 }
 
 UINT_PTR Window::SetTimer( UINT_PTR id, unsigned int elapsedInMS )

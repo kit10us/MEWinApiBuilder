@@ -176,7 +176,7 @@ void Edit::Create( HWND parent )
 		GetActualWidth(),
 		GetActualHeight(), 
 		parent,
-		(HMENU)GetID(),
+		(HMENU)(uint64_t)GetID(),
 		0,
 		0
 	);
