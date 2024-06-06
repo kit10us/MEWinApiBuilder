@@ -5,7 +5,8 @@
 
 #include <wab/ui/ListView.h>
 #include <wab/ui/Edit.h>
-
+#include <port/win/general.h>
+#include <unify/String.h>
 
 using namespace ui;
 
@@ -182,9 +183,8 @@ bool ListView::InsertItem( int column, int index, std::wstring text )
 
 bool ListView::SetItemText( std::wstring text )
 {
-	WCHAR szText[ 256 ];
-	wcscpy( szText, text.c_str() );
-	ListView_SetItemText( GetHandle(), 0, 1, szText );
+	auto finalText = port::win::ToWindowsString(text);
+	ListView_SetItemText( GetHandle(), 0, 1, COMPAT_PWSTR(text.c_str() ));
 	return true;
 }
 
@@ -231,7 +231,7 @@ void ListView::SetColumnOverFlow( bool enable )			{ SetExStyle( LVS_EX_COLUMNOVE
 
 int ListView::DeleteAllItems()
 {
-	return SendMessageA( GetHandle(), LVM_DELETEALLITEMS, 0, 0 );
+	return COMPAT_LRESULT_TO_INT(SendMessageA( GetHandle(), LVM_DELETEALLITEMS, 0, 0 ));
 }
 
 unsigned int ListView::GetSelectedColumn() const

@@ -3,6 +3,7 @@
 
 #include <wab/create/Create_Richtext.h>
 #include <wab/ui/Richtext.h>
+#include <wab/compat.h>
 #include <Richedit.h>
 
 using namespace create;
@@ -155,7 +156,7 @@ void Richtext::Create( HWND parent )
 		GetActualWidth(),
 		GetActualHeight(), 
 		parent,
-		(HMENU)(uint64_t)GetID(),
+		(HMENU)COMPAT_SIZE(GetID()),
 		0,
 		0
 	);

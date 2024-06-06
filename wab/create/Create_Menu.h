@@ -86,8 +86,7 @@ namespace create
 	private:		 
 		std::vector< MenuItem > m_createItems;
 		std::vector< std::shared_ptr< ui::MenuItem > > m_itemList;
-		std::map< std::string, std::shared_ptr< ui::MenuItem >, unify::string::CaseInsensitiveLessThanEqualTest > m_itemMap;
-
+		std::map<std::string, std::shared_ptr< ui::MenuItem >, unify::string::CaseInsensitiveLessThanEqualTest> m_itemMap;
 
 		std::shared_ptr< ui::Menu > m_rootMenu;
 

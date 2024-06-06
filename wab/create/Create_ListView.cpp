@@ -3,7 +3,7 @@
 
 #include <wab/create/Create_ListView.h>
 #include <wab/ui/ListView.h>
-
+#include <wab/compat.h>
 #include <CommCtrl.h>
 
 using namespace create;
@@ -113,7 +113,7 @@ void ListView::Create( HWND parent )
 		GetActualWidth(),
 		GetActualHeight(), 
 		parent,
-		(HMENU)(uint64_t)GetID(),
+		(HMENU)COMPAT_SIZE(GetID()),
 		0,
 		0
 	);

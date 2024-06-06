@@ -3,6 +3,7 @@
 
 #include <wab/create/Create_Treeview.h>
 #include <wab/ui/Treeview.h>
+#include <wab/compat.h>
 #include <Commctrl.h>
 
 #pragma comment( lib, "Comctl32" )
@@ -73,7 +74,7 @@ void Treeview::Create( HWND parent )
 		GetActualWidth(),
 		GetActualHeight(),
 		parent,
-		(HMENU)(uint64_t)GetID(),
+		(HMENU)COMPAT_SIZE(GetID()),
 		0,
 		0
 	);

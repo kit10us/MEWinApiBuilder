@@ -3,6 +3,7 @@
 
 #include <wab/create/Create_Listbox.h>
 #include <wab/ui/Listbox.h>
+#include <wab/compat.h>
 
 using namespace create;
 
@@ -99,7 +100,7 @@ void Listbox::Create( HWND parent )
 		GetActualWidth(),
 		GetActualHeight(), 
 		parent,
-		(HMENU)(uint64_t)GetID(),
+		(HMENU)COMPAT_SIZE(GetID()),
 		0,
 		0
 	);

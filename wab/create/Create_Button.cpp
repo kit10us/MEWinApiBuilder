@@ -3,6 +3,7 @@
 
 #include <wab/create/Create_Button.h>
 #include <wab/ui/Button.h>
+#include <port/win/general.h>
 
 using namespace create;
 
@@ -96,7 +97,7 @@ void Button::ComputePass1()
 	if ( SizeToContentWidth() == GetWantedWidth() )
 	{
 		int charWidth = LOWORD( GetDialogBaseUnits() ) + 2;
-		m_actualWidth = charWidth * (int)GetWantedText().size();
+		m_actualWidth = (int)(charWidth * GetWantedText().size());
 	}
 }
 
@@ -111,7 +112,7 @@ void Button::Create( HWND parent )
 		GetActualWidth(),
 		GetActualHeight(), 
 		parent,
-		(HMENU)(INT64)GetID(),
+		(HMENU)COMPAT_SIZE(GetID()),
 		0,
 		0
 	);

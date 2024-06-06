@@ -3,6 +3,7 @@
 
 #include <wab/create/Create_Combobox.h>
 #include <wab/ui/Combobox.h>
+#include <wab/compat.h>
 
 using namespace create;
 
@@ -65,7 +66,7 @@ void Combobox::Create( HWND parent )
 		GetActualWidth(),
 		( create::DefaultHeight() == m_wantedHeight ) ? GetDefaultHeight() : m_wantedHeight, 
 		parent,
-		(HMENU)(uint64_t)GetID(),
+		(HMENU)COMPAT_SIZE(GetID()),
 		0,
 		0
 	);

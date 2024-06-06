@@ -3,6 +3,7 @@
 
 #include <wab/create/Create_Static.h>
 #include <wab/ui/Static.h>
+#include <wab/compat.h>
 
 using namespace create;
 
@@ -111,7 +112,7 @@ void Static::Create( HWND parent )
 		GetActualWidth(),
 		GetActualHeight(), 
 		parent,
-		(HMENU)(uint64_t)GetID(),
+		(HMENU)COMPAT_SIZE(GetID()),
 		0,
 		0
 	);
