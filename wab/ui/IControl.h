@@ -5,10 +5,7 @@
 
 #include <Windows.h>
 
-// Undefine Microsoft clashing defines.
-#ifdef CreateWindow
-#undef CreateWindow
-#endif
+#include <wab/ui/Undef.h>
 
 #include <string>
 #include <cassert>
@@ -28,6 +25,8 @@ namespace ui
 
 		virtual std::string GetName() const = 0;
 		virtual int GetID() const = 0;
+
+		virtual std::string GetClassName() const = 0;
 		
 	public: // WinApi functions...
 		virtual void SetText( std::string text ) = 0;

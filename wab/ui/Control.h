@@ -32,6 +32,8 @@ namespace ui
 		std::string GetName() const override;
 		int GetID() const override;
 
+		std::string GetClassName() const override;
+
 	public: // WinApi functions...
 		void SetText( std::string text ) override;
 		void AppendText( std::string text );

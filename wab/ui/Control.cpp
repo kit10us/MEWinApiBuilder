@@ -37,6 +37,13 @@ int Control::GetID() const
 	return m_createControl->GetID();
 }
 
+std::string Control::GetClassName() const
+{
+	char class_name[256]{};
+	GetClassNameA(GetHandle(), class_name, 256);
+	return std::string(class_name);
+}
+
 void Control::SetText( std::string text )
 {
 	SendMessageA( GetHandle(), WM_SETTEXT, 0, (LPARAM)(char*)text.c_str() );

@@ -224,5 +224,8 @@
     <ClInclude Include="wab\compat.h">
       <Filter>wab</Filter>
     </ClInclude>
+    <ClInclude Include="wab\ui\Undef.h">
+      <Filter>ui</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

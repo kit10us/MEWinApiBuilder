@@ -128,6 +128,7 @@ int Control::GetID() const
 {
 	return m_id;
 }
+
 int Control::GetActualX() const
 {
 	return m_actualX;

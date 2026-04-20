@@ -2,6 +2,7 @@
 // All Rights Reserved
 
 #include <wab/ui/Combobox.h>
+#include <port/win/general.h>
 
 using namespace ui;
 
@@ -31,5 +32,5 @@ void Combobox::SetCurSel( int sel )
 
 int Combobox::GetCurSel() const
 {
-	return SendMessageA( GetHandle(), CB_GETCURSEL, 0, 0 );
+	return COMPAT_LRESULT_TO_INT(SendMessageA( GetHandle(), CB_GETCURSEL, 0, 0 ));
 }

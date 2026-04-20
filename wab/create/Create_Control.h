@@ -5,6 +5,10 @@
 
 #include <wab/create/Create_IControl.h>
 
+#ifdef GetClassName
+#undef GetClassName
+#endif
+
 namespace ui
 {
 	class Window;
