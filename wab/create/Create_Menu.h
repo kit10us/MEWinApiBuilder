@@ -4,6 +4,7 @@
 #pragma once
 
 #include <wab/ui/POD.h>
+#include <unify/Cast.h>
 
 #include <map>
 #include <stack>
@@ -31,7 +32,7 @@ namespace create
 		}
 
 		MenuItem( std::string textIsName )
-			: m_text{ unify::Cast< std::wstring >( textIsName ) }
+			: m_text{ *unify::ToWString( textIsName ) }
 			, m_name{ textIsName }
 		{
 		}
@@ -43,7 +44,7 @@ namespace create
 		}
 
 		MenuItem( std::string text, std::initializer_list< MenuItem > items )
-			: m_text{ unify::Cast< std::wstring >( text ) }
+			: m_text{ *unify::ToWString( text ) }
 			, m_items{ items }
 		{	
 		}

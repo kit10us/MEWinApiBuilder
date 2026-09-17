@@ -183,8 +183,9 @@ bool ListView::InsertItem( int column, int index, std::wstring text )
 
 bool ListView::SetItemText( std::wstring text )
 {
-	auto finalText = port::win::ToWindowsString(text);
-	ListView_SetItemText( GetHandle(), 0, 1, COMPAT_PWSTR(text.c_str() ));
+	auto final_text = port::win::ToWindowsString(text);
+	//ListView_SetItemText( GetHandle(), 0, 1, COMPAT_PWSTR(text.c_str() ));
+	ListView_SetItemText( GetHandle(), 0, 1, (LPWSTR)final_text.c_str());
 	return true;
 }
 
