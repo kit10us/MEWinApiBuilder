@@ -35,7 +35,7 @@ namespace ui
 		create::container::Container * m_rootContainer;
 		create::container::Container * m_currentParent;
 		std::map< int, create::IControl::ptr > m_controls;
-		std::map< std::string, create::IControl::ptr, unify::string::CaseInsensitiveLessThanEqualTest > m_controlsByName;
+		std::map< std::string, create::IControl::ptr, unify::String::CaseInsensitiveLessThanEqualTest > m_controlsByName;
 		create::Menu::ptr m_menu;
 
 	public:

@@ -4,6 +4,7 @@
 #pragma once
 
 #include <wab/ui/POD.h>
+#include <unify/Cast.h>
 
 #include <map>
 #include <stack>
@@ -31,7 +32,7 @@ namespace create
 		}
 
 		MenuItem( std::string textIsName )
-			: m_text{ unify::Cast< std::wstring >( textIsName ) }
+			: m_text{ *unify::ToWString( textIsName ) }
 			, m_name{ textIsName }
 		{
 		}
@@ -43,7 +44,7 @@ namespace create
 		}
 
 		MenuItem( std::string text, std::initializer_list< MenuItem > items )
-			: m_text{ unify::Cast< std::wstring >( text ) }
+			: m_text{ *unify::ToWString( text ) }
 			, m_items{ items }
 		{	
 		}
@@ -86,13 +87,13 @@ namespace create
 	private:		 
 		std::vector< MenuItem > m_createItems;
 		std::vector< std::shared_ptr< ui::MenuItem > > m_itemList;
-		std::map<std::string, std::shared_ptr< ui::MenuItem >, unify::string::CaseInsensitiveLessThanEqualTest> m_itemMap;
+		std::map<std::string, std::shared_ptr< ui::MenuItem >, unify::String::CaseInsensitiveLessThanEqualTest> m_itemMap;
 
 		std::shared_ptr< ui::Menu > m_rootMenu;
 
-		std::map< std::string /* name */, std::shared_ptr< ui::Menu >, unify::string::CaseInsensitiveLessThanEqualTest> m_menuMap;
+		std::map< std::string /* name */, std::shared_ptr< ui::Menu >, unify::String::CaseInsensitiveLessThanEqualTest> m_menuMap;
 		std::map< HMENU, std::shared_ptr< ui::Menu > > m_menuList;
 		
-		//std::map< std::string /*name*/, int, unify::string::CaseInsensitiveLessThanEqualTest > m_itemNameToId;
+		//std::map< std::string /*name*/, int, unify::String::CaseInsensitiveLessThanEqualTest > m_itemNameToId;
 	};
 }
