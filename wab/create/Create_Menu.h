@@ -32,7 +32,7 @@ namespace create
 		}
 
 		MenuItem( std::string textIsName )
-			: m_text{ *unify::ToWString( textIsName ) }
+			: m_text{ unify::ToWString( textIsName ) }
 			, m_name{ textIsName }
 		{
 		}
@@ -44,7 +44,7 @@ namespace create
 		}
 
 		MenuItem( std::string text, std::initializer_list< MenuItem > items )
-			: m_text{ *unify::ToWString( text ) }
+			: m_text{ unify::ToWString( text ) }
 			, m_items{ items }
 		{	
 		}
